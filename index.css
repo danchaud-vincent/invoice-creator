@@ -58,4 +58,45 @@ p {
   --bg-button: #3770ed;
 }
 
+/* ======= FONT FAMILY ======= */
+body {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
 /* ======= GLOBAL STYLING ======= */
+body {
+  background-color: var(--bg);
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-card {
+  background-color: var(--bg-card);
+}
+
+header {
+  background-color: var(--bg-header-card);
+  text-align: center;
+  padding: 2em 4em;
+}
+
+header > h1 {
+  color: var(--text-title);
+  font-size: var(--fs-title);
+  font-weight: 800;
+}
+
+header > h2 {
+  color: var(--text-title);
+  font-size: var(--fs-s);
+  font-weight: 400;
+}
