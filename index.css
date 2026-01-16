@@ -83,6 +83,7 @@ body {
   background-color: var(--bg-card);
 }
 
+/* HEADER */
 header {
   background-color: var(--bg-header-card);
   text-align: center;
@@ -99,4 +100,50 @@ header > h2 {
   color: var(--text-title);
   font-size: var(--fs-s);
   font-weight: 400;
+}
+
+/* MAIN */
+main {
+  padding: 2em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.invoice-calculator-container {
+  padding: 2em 0;
+}
+
+/* TASK CONTAINER */
+.tasks-container {
+  margin-bottom: 1em;
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border);
+}
+
+/* TOTAL CONTAINER */
+.total-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-result {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* BUTTON */
+.send-btn {
+  padding: 0.75em 0;
+  font-size: var(--fs-s);
+  color: var(--text-button);
+  background-color: var(--bg-button);
+
+  border: none;
+  border-radius: var(--br);
+  cursor: pointer;
 }
