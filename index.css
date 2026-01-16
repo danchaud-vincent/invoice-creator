@@ -1,0 +1,61 @@
+/* ======= RESET ======= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ======= GLOBAL VARIABLES ======= */
+:root {
+  /* FONT SIZES */
+  --fs-xs: 0.75rem; /*12px*/
+  --fs-s: 1rem; /*16px*/
+  --fs-m: 1.5rem; /*24px*/
+  --fs-l: 2.75rem; /*44px*/
+  --fs-title-small: 2rem; /*32px*/
+  --fs-title: 2.5rem; /*40px*/
+
+  /* COLORS */
+  --bg: #2b283a;
+  --bg-header-card: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-input-number: #f5f5f5;
+  --border: #d5d4d8;
+  --text: #918e9b;
+  --text-title: #2b283a;
+  --text-task: #4a4e74;
+  --text-button: #ffffff;
+  --bg-button: #3770ed;
+
+  /* BORDER */
+  --br: 0.5rem; /* 8 px*/
+}
+
+.darkmode {
+  /* COLORS */
+  --bg: #ffffff;
+  --bg-header-card: #3770ed;
+  --bg-card: #1f2937;
+  --bg-input-number: #f5f5f5;
+  --border: #d5d4d8;
+  --text: #d5d4d8;
+  --text-title: #ffffff;
+  --text-task: #f5f5f5;
+  --text-button: #ffffff;
+  --bg-button: #3770ed;
+}
+
+/* ======= GLOBAL STYLING ======= */
