@@ -35,33 +35,40 @@
       <main>
         <section class="form-container">
           <form class="form-add-task">
-            <label>Add task</label>
-            <input type="text" id="task-name" name="task-name" placeholder="Task description" />
-            <button type="submit" aria-label="Add task"><i class="fa-solid fa-plus"></i></button>
+            <div class="form-input add-task">
+              <label for="task-name" class="text">Add a task</label>
+              <input type="text" id="task-name" name="task-name" placeholder="Task description" />
+            </div>
+            <div class="form-input add-price">
+              <label for="task-price" class="text">Add a price</label>
+              <input type="number" id="task-price" name="task-price" min="0" placeholder="$--" />
+            </div>
+
+            <button type="submit" class="submit-btn" aria-label="Add task"><i class="fa-solid fa-plus"></i></button>
           </form>
         </section>
 
         <section class="invoice-calculator-container">
           <section class="tasks-container">
             <div class="tasks-header">
-              <p>TASK</p>
-              <p>TOTAL</p>
+              <p class="small-text">TASK</p>
+              <p class="small-text">TOTAL</p>
             </div>
             <div class="tasks-list"></div>
           </section>
           <section class="total-container">
             <div class="total-header">
-              <p>NOTES</p>
-              <p>TOTAL AMOUNT</p>
+              <p class="small-text">NOTES</p>
+              <p class="small-text">TOTAL AMOUNT</p>
             </div>
             <div class="total-result">
-              <p>We accept cash, credit card, or PayPal</p>
-              <p>$<span id="total"></span></p>
+              <p class="payment-desc text">We accept cash, credit card, or PayPal</p>
+              <p class="amount-text">$<span id="total">0</span></p>
             </div>
           </section>
         </section>
 
-        <button type="button" class="send-btn">Send invoice</button>
+        <button type="button" class="send-btn"><i class="fa-solid fa-envelope"></i> Send invoice</button>
       </main>
     </div>
 
