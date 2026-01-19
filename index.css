@@ -129,7 +129,7 @@ input {
   justify-content: space-between;
 }
 
-.total-result {
+.total-footer {
   display: flex;
   justify-content: space-between;
 }
@@ -140,12 +140,16 @@ input {
 
 /* BUTTON */
 button {
+  cursor: pointer;
+}
+
+.send-btn,
+.submit-btn {
   padding: 0.75em 0;
   color: var(--text-button);
   background-color: var(--bg-button);
   border: none;
   border-radius: var(--br);
-  cursor: pointer;
 }
 
 /* ======= FONTS ======= */
@@ -171,7 +175,7 @@ header > h2 {
   font-weight: 400;
 }
 
-.small-text {
+.header-text {
   font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--text);
@@ -183,7 +187,7 @@ header > h2 {
   color: var(--text-title);
 }
 
-.amount-text {
+.total-amount {
   font-size: var(--fs-amount);
   color: var(--text);
 }
@@ -249,7 +253,7 @@ button {
     font-size: var(--fs-xs);
   }
 
-  .amount-text {
+  .total-amount {
     font-size: var(--fs-amount);
   }
 
