@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- META -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Creator</title>
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="app-card">
+      <header>
+        <h1>Invoice creator</h1>
+        <h2>Thanks for choosing GoodCorp, LLC!</h2>
+      </header>
+      <main>
+        <section class="form-container">
+          <form id="form-task" class="form-add-task">
+            <div class="form-input add-task">
+              <label for="task-name" class="text">Add a task</label>
+              <input type="text" id="task-name" name="task-name" placeholder="Task description" required />
+            </div>
+            <div class="form-input add-price">
+              <label for="task-price" class="text">Add a price</label>
+              <input type="number" id="task-price" name="task-price" min="0" placeholder="$--" required />
+            </div>
+
+            <button type="submit" class="submit-btn" aria-label="Add task"><i class="fa-solid fa-plus"></i></button>
+          </form>
+        </section>
+
+        <section class="invoice-calculator-container">
+          <section class="tasks-container">
+            <div class="tasks-header">
+              <p class="header-text">TASK</p>
+              <p class="header-text">TOTAL</p>
+            </div>
+            <div id="tasks" class="tasks-list"></div>
+          </section>
+          <section class="total-container">
+            <div class="total-header">
+              <p class="header-text">NOTES</p>
+              <p class="header-text">TOTAL AMOUNT</p>
+            </div>
+            <div class="total-footer">
+              <p class="payment-desc text">We accept cash, credit card, or PayPal</p>
+              <p id="total-el" class="total-amount">$<span id="total-result">0</span></p>
+            </div>
+          </section>
+        </section>
+
+        <button type="button" id="send-btn" class="send-btn" disabled>
+          <span class="toSend-msg"><i class="fa-solid fa-envelope"></i> Send invoice</span>
+          <span class="sent-msg"> <i class="fa-solid fa-envelope-circle-check"></i> Invoice sent ! </span>
+        </button>
+      </main>
+    </div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
