@@ -128,9 +128,11 @@ input {
 }
 
 .task {
+  padding: 0.5em 0;
+
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 .task-price {
@@ -164,6 +166,17 @@ button {
   background-color: var(--bg-button);
   border: none;
   border-radius: var(--br);
+}
+
+.remove-btn {
+  border: none;
+  background: none;
+  color: var(--text);
+}
+
+.remove-btn:hover,
+.remove-btn:focus {
+  color: red;
 }
 
 /* ======= FONTS ======= */
@@ -207,19 +220,23 @@ header > h2 {
 }
 
 .task-name {
-  font-size: var(--fs-m);
+  font-size: var(--fs-s);
   font-weight: 700;
   color: var(--text-task);
 }
 
 .task-price {
-  font-size: var(--fs-m);
+  font-size: var(--fs-s);
   font-weight: 300;
   color: var(--text);
 }
 
 .task-price > span {
   color: var(--text-task);
+}
+
+.remove-btn {
+  font-size: var(--fs-xs);
 }
 
 button {
@@ -288,6 +305,18 @@ button {
   }
 
   .send-btn {
+    font-size: var(--fs-s);
+  }
+
+  .task-name {
+    font-size: var(--fs-m);
+  }
+
+  .task-price {
+    font-size: var(--fs-m);
+  }
+
+  .remove-btn {
     font-size: var(--fs-s);
   }
 }
