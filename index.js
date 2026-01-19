@@ -1,18 +1,35 @@
-const tasks = [];
+const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
 
 const form = document.getElementById('form-task');
 const tasksList = document.getElementById('tasks');
+const totalAmount = document.getElementById('total-el');
+const totalResult = document.getElementById('total-result');
+
+render();
 
 function render() {
-  let html = '';
+  console.log(tasks);
+  let htmlTasks = '';
+  let total = 0;
+
   for (let task of tasks) {
-    html += `<div class="task">
+    htmlTasks += `<div class="task">
                 <p class="task-name">${task.task}</p>
                 <button class="remove-btn" data-task="${task.id}" onClick="removeTask(event)">Remove</button>
                 <p class="task-price">$<span>${task.price}</span></p>
               </div>`;
+
+    total += task.price;
   }
-  tasksList.innerHTML = html;
+
+  if (total > 0) {
+    totalAmount.classList.add('total-amount-notNull');
+  } else {
+    totalAmount.classList.remove('total-amount-notNull');
+  }
+
+  totalResult.textContent = total;
+  tasksList.innerHTML = htmlTasks;
 }
 
 function addTask(e) {
@@ -29,15 +46,24 @@ function addTask(e) {
     tasks.push({ id: taskId, task: taskName, price: Number(taskPrice) });
   }
 
+  // reset form
+  form.reset();
+
+  // save in localStorage
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+
   render();
 }
 
 function removeTask(event) {
+  // remove the task
   const data = event.target.dataset;
   const taskId = data.task;
   const indexToRemove = tasks.findIndex((task) => task.id === taskId);
-
   tasks.splice(indexToRemove, 1);
+
+  // save in localStorage
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 
   render();
 }

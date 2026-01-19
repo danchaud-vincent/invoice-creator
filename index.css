@@ -219,6 +219,10 @@ header > h2 {
   color: var(--text);
 }
 
+.total-amount-notNull {
+  color: var(--text-task);
+}
+
 .task-name {
   font-size: var(--fs-s);
   font-weight: 700;
