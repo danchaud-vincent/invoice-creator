@@ -34,14 +34,14 @@
       </header>
       <main>
         <section class="form-container">
-          <form class="form-add-task">
+          <form id="form-task" class="form-add-task" onsubmit="addTask(event)">
             <div class="form-input add-task">
               <label for="task-name" class="text">Add a task</label>
-              <input type="text" id="task-name" name="task-name" placeholder="Task description" />
+              <input type="text" id="task-name" name="task-name" placeholder="Task description" required />
             </div>
             <div class="form-input add-price">
               <label for="task-price" class="text">Add a price</label>
-              <input type="number" id="task-price" name="task-price" min="0" placeholder="$--" />
+              <input type="number" id="task-price" name="task-price" min="0" placeholder="$--" required />
             </div>
 
             <button type="submit" class="submit-btn" aria-label="Add task"><i class="fa-solid fa-plus"></i></button>
