@@ -120,7 +120,21 @@ input {
 .tasks-header {
   display: flex;
   justify-content: space-between;
+}
+
+.tasks-list {
+  padding: 1em 0;
   border-bottom: 2px solid var(--border);
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.task-price {
+  margin-left: auto;
 }
 
 /* TOTAL CONTAINER */
@@ -190,6 +204,22 @@ header > h2 {
 .total-amount {
   font-size: var(--fs-amount);
   color: var(--text);
+}
+
+.task-name {
+  font-size: var(--fs-m);
+  font-weight: 700;
+  color: var(--text-task);
+}
+
+.task-price {
+  font-size: var(--fs-m);
+  font-weight: 300;
+  color: var(--text);
+}
+
+.task-price > span {
+  color: var(--text-task);
 }
 
 button {
