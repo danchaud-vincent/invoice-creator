@@ -213,6 +213,8 @@ button {
 
   .form-add-task > button {
     align-self: flex-end;
+    padding: 0 0.75em;
+    border: 1px solid var(--border);
     border-radius: 0 var(--br) var(--br) 0;
   }
 
@@ -220,13 +222,13 @@ button {
     flex: 1;
   }
 
-  .add-price > input {
-    width: 100px;
+  .add-task > input {
+    border-radius: var(--br) 0 0 var(--br);
   }
 
-  /* BUTTON */
-  .submit-btn {
-    padding: 0 0.75em;
+  .add-price > input {
+    width: 100px;
+    border-radius: 0;
   }
 
   /* ======= FONTS ======= */
