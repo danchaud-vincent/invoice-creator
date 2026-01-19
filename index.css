@@ -27,6 +27,7 @@ p {
   --fs-l: 2.75rem; /*44px*/
   --fs-title-small: 2rem; /*32px*/
   --fs-title: 2.5rem; /*40px*/
+  --fs-amount: 2.25rem; /*36px*/
 
   /* COLORS */
   --bg: #2b283a;
@@ -58,17 +59,6 @@ p {
   --bg-button: #3770ed;
 }
 
-/* ======= FONT FAMILY ======= */
-body {
-  font-family: 'Inter', sans-serif;
-  font-optical-sizing: auto;
-}
-
-input,
-button {
-  font-family: inherit;
-}
-
 /* ======= GLOBAL STYLING ======= */
 body {
   background-color: var(--bg);
@@ -81,6 +71,7 @@ body {
 
 .app-card {
   background-color: var(--bg-card);
+  width: 90%;
 }
 
 /* HEADER */
@@ -88,18 +79,6 @@ header {
   background-color: var(--bg-header-card);
   text-align: center;
   padding: 2em 4em;
-}
-
-header > h1 {
-  color: var(--text-title);
-  font-size: var(--fs-title);
-  font-weight: 800;
-}
-
-header > h2 {
-  color: var(--text-title);
-  font-size: var(--fs-s);
-  font-weight: 400;
 }
 
 /* MAIN */
@@ -112,6 +91,25 @@ main {
 
 .invoice-calculator-container {
   padding: 2em 0;
+}
+
+/* FORM CONTAINER */
+
+.form-add-task {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid var(--border);
+  border-radius: var(--br);
+  padding: 0.75em;
 }
 
 /* TASK CONTAINER */
@@ -136,14 +134,124 @@ main {
   justify-content: space-between;
 }
 
+.payment-desc {
+  width: 50%;
+}
+
 /* BUTTON */
-.send-btn {
+button {
   padding: 0.75em 0;
-  font-size: var(--fs-s);
   color: var(--text-button);
   background-color: var(--bg-button);
-
   border: none;
   border-radius: var(--br);
   cursor: pointer;
+}
+
+/* ======= FONTS ======= */
+body {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+header > h1 {
+  color: var(--text-title);
+  font-size: var(--fs-title-small);
+  font-weight: 800;
+}
+
+header > h2 {
+  color: var(--text-title);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+}
+
+.small-text {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.text {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-title);
+}
+
+.amount-text {
+  font-size: var(--fs-amount);
+  color: var(--text);
+}
+
+button {
+  font-size: var(--fs-s);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .app-card {
+    width: 60%;
+    max-width: 600px;
+  }
+
+  /* FORM */
+  .form-add-task {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .form-input > input,
+  .form-add-task > button {
+    height: 30px;
+    border: 1px solid var(--border);
+  }
+
+  .form-add-task > button {
+    align-self: flex-end;
+    border-radius: 0 var(--br) var(--br) 0;
+  }
+
+  .add-task {
+    flex: 1;
+  }
+
+  .add-price > input {
+    width: 100px;
+  }
+
+  /* BUTTON */
+  .submit-btn {
+    padding: 0 0.75em;
+  }
+
+  /* ======= FONTS ======= */
+
+  header > h1 {
+    font-size: var(--fs-title);
+  }
+
+  header > h2 {
+    font-size: var(--fs-s);
+  }
+
+  .small-text {
+    font-size: var(--fs-xs);
+  }
+
+  .text {
+    font-size: var(--fs-xs);
+  }
+
+  .amount-text {
+    font-size: var(--fs-amount);
+  }
+
+  .send-btn {
+    font-size: var(--fs-s);
+  }
 }
