@@ -179,6 +179,37 @@ button {
   color: red;
 }
 
+.send-btn {
+  position: relative;
+  transition: transform 0.25s ease-in-out;
+}
+
+.sent-msg {
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  transform: scale(0.5);
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.send-btn.sent .sent-msg {
+  z-index: 1;
+  opacity: 1;
+  color: lightgreen;
+  transform: scale(1);
+}
+
+.send-btn.sent .toSend-msg {
+  opacity: 0;
+}
+
+button:disabled {
+  background: gray;
+}
+
 /* ======= FONTS ======= */
 body {
   font-family: 'Inter', sans-serif;
