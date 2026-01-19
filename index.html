@@ -34,7 +34,7 @@
       </header>
       <main>
         <section class="form-container">
-          <form id="form-task" class="form-add-task" onsubmit="addTask(event)">
+          <form id="form-task" class="form-add-task">
             <div class="form-input add-task">
               <label for="task-name" class="text">Add a task</label>
               <input type="text" id="task-name" name="task-name" placeholder="Task description" required />
@@ -68,10 +68,13 @@
           </section>
         </section>
 
-        <button type="button" class="send-btn"><i class="fa-solid fa-envelope"></i> Send invoice</button>
+        <button type="button" id="send-btn" class="send-btn" disabled>
+          <span class="toSend-msg"><i class="fa-solid fa-envelope"></i> Send invoice</span>
+          <span class="sent-msg"> <i class="fa-solid fa-envelope-circle-check"></i> Invoice sent ! </span>
+        </button>
       </main>
     </div>
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

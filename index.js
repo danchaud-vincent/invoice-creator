@@ -1,69 +1,83 @@
-const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+import { getTasks, addTask, removeTask, clearTasks } from './tasks.js';
 
 const form = document.getElementById('form-task');
 const tasksList = document.getElementById('tasks');
 const totalAmount = document.getElementById('total-el');
 const totalResult = document.getElementById('total-result');
+const sendInvoiceBtn = document.getElementById('send-btn');
 
 render();
 
+// EVENT LISTENER
+form.addEventListener('submit', handleAddTask);
+tasksList.addEventListener('click', handleRemoveTask);
+sendInvoiceBtn.addEventListener('click', sendInvoice);
+
 function render() {
-  console.log(tasks);
   let htmlTasks = '';
   let total = 0;
+  const tasks = getTasks();
 
   for (let task of tasks) {
     htmlTasks += `<div class="task">
                 <p class="task-name">${task.task}</p>
-                <button class="remove-btn" data-task="${task.id}" onClick="removeTask(event)">Remove</button>
+                <button class="remove-btn" data-task="${task.id}">Remove</button>
                 <p class="task-price">$<span>${task.price}</span></p>
               </div>`;
 
     total += task.price;
   }
 
-  if (total > 0) {
-    totalAmount.classList.add('total-amount-notNull');
-  } else {
-    totalAmount.classList.remove('total-amount-notNull');
-  }
+  totalAmount.classList.toggle('total-amount-notNull', total > 0);
+  sendInvoiceBtn.disabled = tasks.length > 0 ? false : true;
 
   totalResult.textContent = total;
   tasksList.innerHTML = htmlTasks;
 }
 
-function addTask(e) {
+function handleAddTask(e) {
   e.preventDefault();
 
   // get data form
   const formData = new FormData(form);
   const taskName = formData.get('task-name');
-  const taskPrice = formData.get('task-price');
+  const taskPrice = Number(formData.get('task-price'));
   const taskId = taskName + '-' + self.crypto.randomUUID();
-  console.log(taskId);
 
-  if (taskName !== null || taskPrice !== null) {
-    tasks.push({ id: taskId, task: taskName, price: Number(taskPrice) });
+  if (!taskName || isNaN(taskPrice) || !taskPrice) {
+    return;
   }
 
-  // reset form
-  form.reset();
+  addTask({
+    id: taskId,
+    task: taskName,
+    price: taskPrice,
+  });
 
-  // save in localStorage
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  form.reset();
+  render();
+}
+
+function handleRemoveTask(event) {
+  if (event.target.classList.contains('remove-btn')) {
+    // remove the task
+    const data = event.target.dataset;
+    const taskId = data.task;
+
+    removeTask(taskId);
+  }
 
   render();
 }
 
-function removeTask(event) {
-  // remove the task
-  const data = event.target.dataset;
-  const taskId = data.task;
-  const indexToRemove = tasks.findIndex((task) => task.id === taskId);
-  tasks.splice(indexToRemove, 1);
+function sendInvoice() {
+  const btn = document.getElementById('send-btn');
 
-  // save in localStorage
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  btn.classList.add('sent');
+  clearTasks();
 
-  render();
+  setTimeout(() => {
+    btn.classList.remove('sent');
+    render();
+  }, 1500);
 }
